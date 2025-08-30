@@ -1,0 +1,95 @@
+---
+title: "Some Programming in Base R"
+author: "Cass Crews"
+format: html
+editor: visual
+---
+
+# Task 1
+
+We are analyzing blood pressure before and after a medical treatment. 
+
+### 1.
+
+First, we will create the vectors corresponding to pre-treatment and post-treatment blood pressures. 
+
+```{r}
+#Pre-treatment blood pressure
+pre_treat_bp<-c(120, 151, 125, 126, 115, 132, 132, 129, 134, 139, 127, 122, 
+                127, 135, 133, 128, 147, 138, 140, 132)
+
+#Post-treatment blood pressure
+post_treat_bp<-c(127, 145, 135, 122, 115, 122, 123, 126, 126, 129, 132, 146, 
+                 120, 114, 121, 120, 128, 120, 133, 115)
+```
+
+
+### 2.
+
+Next, we will assign names to each observation in each vector, corresponding to the subject each observation belongs to. 
+
+```{r}
+#Assigning names to pre-treatment vector
+names(pre_treat_bp)<-paste("Subject", 1:20, sep = "_")
+
+#Assigning names to post-treatment vector
+names(post_treat_bp)<-paste("Subject", 1:20, sep = "_")
+```
+
+### 3.
+
+Next, we will take the difference between pre-treatment blood pressures and post-treatment pressures. The subject-specific differences are printed below. 
+
+```{r}
+#Calculating differences in BP
+diff_bp<-pre_treat_bp-post_treat_bp
+
+#Printing the differences
+diff_bp
+```
+
+### 4. 
+
+Next, we will calculate the average difference across the 20 subjects: 5.65.  
+
+```{r}
+#Calculating average difference
+mean_diff_bp<-mean(diff_bp)
+
+#Printing average
+mean_diff_bp
+```
+
+### 5.
+
+Next, we will identify the subjects that experienced a decrease in blood pressure following treatment. Those 15 subjects are listed below. 
+
+```{r}
+#Identifying which subjects experienced a decrease in BP
+which(diff_bp> 0)
+```
+
+### 6.
+
+Next, we will subset the vector of differences to capture only those subjects that experienced a decrease in blood pressure (positive change). The resultant vector is listed below. 
+
+```{r}
+#Creating a vector of only the positive differences
+pos_diff_bp<-diff_bp[diff_bp> 0]
+
+#Printing vector
+pos_diff_bp
+```
+
+### 7. 
+
+Finally, we will calculate the average decrease among only those that experienced a decrease: 10.6
+
+```{r}
+#Calculating average difference for only positive changes
+mean_pos_diff_bp<-mean(pos_diff_bp)
+
+#Printing average
+mean_pos_diff_bp
+```
+
