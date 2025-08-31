@@ -111,10 +111,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>First, we will create the vectors corresponding to pre-treatment and post-treatment blood pressures.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Pre-treatment blood pressure</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pre_treat_bp<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">120</span>, <span class="dv">151</span>, <span class="dv">125</span>, <span class="dv">126</span>, <span class="dv">115</span>, <span class="dv">132</span>, <span class="dv">132</span>, <span class="dv">129</span>, <span class="dv">134</span>, <span class="dv">139</span>, <span class="dv">127</span>, <span class="dv">122</span>, <span class="dv">127</span>, <span class="dv">135</span>, <span class="dv">133</span>, <span class="dv">128</span>, <span class="dv">147</span>, <span class="dv">138</span>, <span class="dv">140</span>, <span class="dv">132</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Post-treatment blood pressure</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>post_treat_bp<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">127</span>, <span class="dv">145</span>, <span class="dv">135</span>, <span class="dv">122</span>, <span class="dv">115</span>, <span class="dv">122</span>, <span class="dv">123</span>, <span class="dv">126</span>, <span class="dv">126</span>, <span class="dv">129</span>, <span class="dv">132</span>, <span class="dv">146</span>, <span class="dv">120</span>, <span class="dv">114</span>, <span class="dv">121</span>, <span class="dv">120</span>, <span class="dv">128</span>, <span class="dv">120</span>, <span class="dv">133</span>, <span class="dv">115</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pre_treat_bp<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">120</span>, <span class="dv">151</span>, <span class="dv">125</span>, <span class="dv">126</span>, <span class="dv">115</span>, <span class="dv">132</span>, <span class="dv">132</span>, <span class="dv">129</span>, <span class="dv">134</span>, <span class="dv">139</span>, <span class="dv">127</span>, <span class="dv">122</span>, </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                <span class="dv">127</span>, <span class="dv">135</span>, <span class="dv">133</span>, <span class="dv">128</span>, <span class="dv">147</span>, <span class="dv">138</span>, <span class="dv">140</span>, <span class="dv">132</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Post-treatment blood pressure</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>post_treat_bp<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">127</span>, <span class="dv">145</span>, <span class="dv">135</span>, <span class="dv">122</span>, <span class="dv">115</span>, <span class="dv">122</span>, <span class="dv">123</span>, <span class="dv">126</span>, <span class="dv">126</span>, <span class="dv">129</span>, <span class="dv">132</span>, <span class="dv">146</span>, </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">120</span>, <span class="dv">114</span>, <span class="dv">121</span>, <span class="dv">120</span>, <span class="dv">128</span>, <span class="dv">120</span>, <span class="dv">133</span>, <span class="dv">115</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-1" class="level3">
@@ -207,6 +209,203 @@ Subject_20
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>mean_pos_diff_bp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10.6</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="task-2" class="level1">
+<h1>Task 2</h1>
+<p>We now combine our data from Task 1 in a data frame.</p>
+<section id="section-7" class="level3">
+<h3 class="anchored" data-anchor-id="section-7">1.</h3>
+<p>First, we create the data frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating initial data frame, preventing data frame from inheriting column names from numeric vectors</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>bp_data<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">patient=</span><span class="fu">names</span>(pre_treat_bp),<span class="at">pre_bp=</span>pre_treat_bp,<span class="at">post_bp=</span>post_treat_bp,<span class="at">diff_bp=</span>diff_bp,<span class="at">row.names=</span><span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-8" class="level3">
+<h3 class="anchored" data-anchor-id="section-8">2.</h3>
+<p>Next, we explore the patients with negative differences between pre-treatment blood pressure and post-treatment blood pressure. The records for those patients are printed below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>bp_data_neg_diff<span class="ot">&lt;-</span>bp_data[bp_data<span class="sc">$</span>diff_bp<span class="sc">&lt;</span> <span class="dv">0</span>,]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>bp_data_neg_diff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      patient pre_bp post_bp diff_bp
+1   Subject_1    120     127      -7
+3   Subject_3    125     135     -10
+11 Subject_11    127     132      -5
+12 Subject_12    122     146     -24</code></pre>
+</div>
+</div>
+</section>
+<section id="section-9" class="level3">
+<h3 class="anchored" data-anchor-id="section-9">3.</h3>
+<p>Next, we create a new column in our data frame indicating whether post-treatment blood pressure was below 120 (TRUE) or not (FALSE).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Adding an indicator for whether post-treatment BP is below 120</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>bp_data<span class="sc">$</span>post_bp_sub120<span class="ot">&lt;-</span>(bp_data<span class="sc">$</span>post_bp<span class="sc">&lt;</span> <span class="dv">120</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-10" class="level3">
+<h3 class="anchored" data-anchor-id="section-10">4.</h3>
+<p>Finally, we print our data frame as a table.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(bp_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">patient</th>
+<th style="text-align: right;">pre_bp</th>
+<th style="text-align: right;">post_bp</th>
+<th style="text-align: right;">diff_bp</th>
+<th style="text-align: left;">post_bp_sub120</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Subject_1</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">127</td>
+<td style="text-align: right;">-7</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Subject_2</td>
+<td style="text-align: right;">151</td>
+<td style="text-align: right;">145</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Subject_3</td>
+<td style="text-align: right;">125</td>
+<td style="text-align: right;">135</td>
+<td style="text-align: right;">-10</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Subject_4</td>
+<td style="text-align: right;">126</td>
+<td style="text-align: right;">122</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Subject_5</td>
+<td style="text-align: right;">115</td>
+<td style="text-align: right;">115</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Subject_6</td>
+<td style="text-align: right;">132</td>
+<td style="text-align: right;">122</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Subject_7</td>
+<td style="text-align: right;">132</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Subject_8</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">126</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Subject_9</td>
+<td style="text-align: right;">134</td>
+<td style="text-align: right;">126</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Subject_10</td>
+<td style="text-align: right;">139</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Subject_11</td>
+<td style="text-align: right;">127</td>
+<td style="text-align: right;">132</td>
+<td style="text-align: right;">-5</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Subject_12</td>
+<td style="text-align: right;">122</td>
+<td style="text-align: right;">146</td>
+<td style="text-align: right;">-24</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Subject_13</td>
+<td style="text-align: right;">127</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Subject_14</td>
+<td style="text-align: right;">135</td>
+<td style="text-align: right;">114</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Subject_15</td>
+<td style="text-align: right;">133</td>
+<td style="text-align: right;">121</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Subject_16</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Subject_17</td>
+<td style="text-align: right;">147</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Subject_18</td>
+<td style="text-align: right;">138</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Subject_19</td>
+<td style="text-align: right;">140</td>
+<td style="text-align: right;">133</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Subject_20</td>
+<td style="text-align: right;">132</td>
+<td style="text-align: right;">115</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </section>

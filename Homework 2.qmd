@@ -93,3 +93,43 @@ mean_pos_diff_bp<-mean(pos_diff_bp)
 mean_pos_diff_bp
 ```
 
+# Task 2
+
+We now combine our data from Task 1 in a data frame. 
+
+### 1. 
+
+First, we create the data frame.
+
+```{r}
+#Creating initial data frame, preventing data frame from inheriting column names from numeric vectors
+bp_data<-data.frame(patient=names(pre_treat_bp),pre_bp=pre_treat_bp,post_bp=post_treat_bp,diff_bp=diff_bp,row.names=NULL)
+```
+
+### 2. 
+
+Next, we explore the patients with negative differences between pre-treatment blood pressure and post-treatment blood pressure. The records for those patients are printed below. 
+
+```{r}
+
+bp_data_neg_diff<-bp_data[bp_data$diff_bp< 0,]
+bp_data_neg_diff
+```
+
+### 3. 
+
+Next, we create a new column in our data frame indicating whether post-treatment blood pressure was below 120 (TRUE) or not (FALSE).
+
+```{r}
+#Adding an indicator for whether post-treatment BP is below 120
+bp_data$post_bp_sub120<-(bp_data$post_bp< 120)
+```
+
+### 4. 
+
+Finally, we print our data frame as a table. 
+
+```{r}
+knitr::kable(bp_data)
+```
+
