@@ -184,7 +184,7 @@ experiment_data$treatment
 
 ### 4.
 
-Finally, we will access the **pre_bp** column of **placebo** using only a single line of code.
+Finally, we will access the `pre_bp` column of `placebo` using only a single line of code. Note that I am preserving the data frame structure so `pre_bp` displays as a column. Alternatively, `experiment_data$placebo$pre_bp` would've produced the column as a vector. 
 
 ```{r}
 #Accessing pre_bp in placebo element
