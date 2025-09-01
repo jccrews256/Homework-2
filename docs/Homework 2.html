@@ -58,24 +58,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="Homework 2_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Homework 2_files/libs/quarto-html/quarto.js"></script>
-<script src="Homework 2_files/libs/quarto-html/popper.min.js"></script>
-<script src="Homework 2_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="Homework 2_files/libs/quarto-html/anchor.min.js"></script>
-<link href="Homework 2_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Homework 2_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="Homework 2_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="Homework 2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Homework 2_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-d4be639c637f3db3c684c66cefad7e0c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
 
 </head>
 
 <body class="fullcontent">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -410,9 +447,146 @@ Subject_20
 </div>
 </section>
 </section>
+<section id="task-3" class="level1">
+<h1>Task 3</h1>
+<section id="section-11" class="level3">
+<h3 class="anchored" data-anchor-id="section-11">1.</h3>
+<p>First, we will create a data frame for the control group that structurally matches the treatment group.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating initial data frame with pre-"treatment" and post-"treatment BP</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>bp_data_control<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">patient=</span><span class="fu">paste</span>(<span class="st">"Subject"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">sep =</span> <span class="st">"_"</span>),</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">pre_bp=</span><span class="fu">c</span>(<span class="dv">138</span>, <span class="dv">135</span>, <span class="dv">147</span>, <span class="dv">117</span>, <span class="dv">152</span>, <span class="dv">134</span>, <span class="dv">114</span>, <span class="dv">121</span>, <span class="dv">131</span>, <span class="dv">130</span>),</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">post_bp=</span><span class="fu">c</span>(<span class="dv">105</span>, <span class="dv">136</span>, <span class="dv">123</span>, <span class="dv">130</span>, <span class="dv">134</span>, <span class="dv">143</span>, <span class="dv">135</span>, <span class="dv">139</span>, <span class="dv">120</span>, <span class="dv">124</span>),</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">row.names=</span><span class="cn">NULL</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Adding difference column between pre- and post-treatment BP</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>bp_data_control<span class="sc">$</span>diff_bp<span class="ot">&lt;-</span>bp_data_control<span class="sc">$</span>pre_bp<span class="sc">-</span>bp_data_control<span class="sc">$</span>post_bp</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Adding an indicator for whether post-treatment BP is below 120</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>bp_data_control<span class="sc">$</span>post_bp_sub120<span class="ot">&lt;-</span>(bp_data_control<span class="sc">$</span>post_bp<span class="sc">&lt;</span> <span class="dv">120</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-12" class="level3">
+<h3 class="anchored" data-anchor-id="section-12">2.</h3>
+<p>Next, we will combine the data frame from Task 2 with our new data frame in a list.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating list combining treatment and placebo data frames</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>experiment_data<span class="ot">&lt;-</span><span class="fu">list</span>(<span class="at">treatment=</span>bp_data,<span class="at">placebo=</span>bp_data_control)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-13" class="level3">
+<h3 class="anchored" data-anchor-id="section-13">3.</h3>
+<p>Next, we will access the first element of the list, <code>treatment</code>, using three different types of syntax:</p>
+<ul>
+<li><code>experiment_data[1]</code> will return the first element while retaining the list structure</li>
+<li><code>experiment_data[[1]]</code> will return the first element in its original data frame structure</li>
+<li><code>experiment_data$treatment</code> will also return the first element in its original data frame structure</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Returning the first element using []</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>experiment_data[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$treatment
+      patient pre_bp post_bp diff_bp post_bp_sub120
+1   Subject_1    120     127      -7          FALSE
+2   Subject_2    151     145       6          FALSE
+3   Subject_3    125     135     -10          FALSE
+4   Subject_4    126     122       4          FALSE
+5   Subject_5    115     115       0           TRUE
+6   Subject_6    132     122      10          FALSE
+7   Subject_7    132     123       9          FALSE
+8   Subject_8    129     126       3          FALSE
+9   Subject_9    134     126       8          FALSE
+10 Subject_10    139     129      10          FALSE
+11 Subject_11    127     132      -5          FALSE
+12 Subject_12    122     146     -24          FALSE
+13 Subject_13    127     120       7          FALSE
+14 Subject_14    135     114      21           TRUE
+15 Subject_15    133     121      12          FALSE
+16 Subject_16    128     120       8          FALSE
+17 Subject_17    147     128      19          FALSE
+18 Subject_18    138     120      18          FALSE
+19 Subject_19    140     133       7          FALSE
+20 Subject_20    132     115      17           TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Returning the first element using [[]]</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>experiment_data[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      patient pre_bp post_bp diff_bp post_bp_sub120
+1   Subject_1    120     127      -7          FALSE
+2   Subject_2    151     145       6          FALSE
+3   Subject_3    125     135     -10          FALSE
+4   Subject_4    126     122       4          FALSE
+5   Subject_5    115     115       0           TRUE
+6   Subject_6    132     122      10          FALSE
+7   Subject_7    132     123       9          FALSE
+8   Subject_8    129     126       3          FALSE
+9   Subject_9    134     126       8          FALSE
+10 Subject_10    139     129      10          FALSE
+11 Subject_11    127     132      -5          FALSE
+12 Subject_12    122     146     -24          FALSE
+13 Subject_13    127     120       7          FALSE
+14 Subject_14    135     114      21           TRUE
+15 Subject_15    133     121      12          FALSE
+16 Subject_16    128     120       8          FALSE
+17 Subject_17    147     128      19          FALSE
+18 Subject_18    138     120      18          FALSE
+19 Subject_19    140     133       7          FALSE
+20 Subject_20    132     115      17           TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Returning the first element using the $ operator</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>experiment_data<span class="sc">$</span>treatment</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      patient pre_bp post_bp diff_bp post_bp_sub120
+1   Subject_1    120     127      -7          FALSE
+2   Subject_2    151     145       6          FALSE
+3   Subject_3    125     135     -10          FALSE
+4   Subject_4    126     122       4          FALSE
+5   Subject_5    115     115       0           TRUE
+6   Subject_6    132     122      10          FALSE
+7   Subject_7    132     123       9          FALSE
+8   Subject_8    129     126       3          FALSE
+9   Subject_9    134     126       8          FALSE
+10 Subject_10    139     129      10          FALSE
+11 Subject_11    127     132      -5          FALSE
+12 Subject_12    122     146     -24          FALSE
+13 Subject_13    127     120       7          FALSE
+14 Subject_14    135     114      21           TRUE
+15 Subject_15    133     121      12          FALSE
+16 Subject_16    128     120       8          FALSE
+17 Subject_17    147     128      19          FALSE
+18 Subject_18    138     120      18          FALSE
+19 Subject_19    140     133       7          FALSE
+20 Subject_20    132     115      17           TRUE</code></pre>
+</div>
+</div>
+</section>
+<section id="section-14" class="level3">
+<h3 class="anchored" data-anchor-id="section-14">4.</h3>
+<p>Finally, we will access the <strong>pre_bp</strong> column of <strong>placebo</strong> using only a single line of code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Accessing pre_bp in placebo element</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>experiment_data<span class="sc">$</span>placebo[<span class="st">"pre_bp"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   pre_bp
+1     138
+2     135
+3     147
+4     117
+5     152
+6     134
+7     114
+8     121
+9     131
+10    130</code></pre>
+</div>
+</div>
 
-</main>
-<!-- /main column -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

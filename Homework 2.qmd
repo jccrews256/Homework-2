@@ -133,3 +133,63 @@ Finally, we print our data frame as a table.
 knitr::kable(bp_data)
 ```
 
+
+# Task 3
+
+### 1. 
+
+First, we will create a data frame for the control group that structurally matches the treatment group. 
+
+```{r}
+#Creating initial data frame with pre-"treatment" and post-"treatment BP
+bp_data_control<-data.frame(patient=paste("Subject", 1:10, sep = "_"),
+                    pre_bp=c(138, 135, 147, 117, 152, 134, 114, 121, 131, 130),
+                    post_bp=c(105, 136, 123, 130, 134, 143, 135, 139, 120, 124),
+                    row.names=NULL)
+
+#Adding difference column between pre- and post-treatment BP
+bp_data_control$diff_bp<-bp_data_control$pre_bp-bp_data_control$post_bp
+
+#Adding an indicator for whether post-treatment BP is below 120
+bp_data_control$post_bp_sub120<-(bp_data_control$post_bp< 120)
+```
+
+### 2. 
+
+Next, we will combine the data frame from Task 2 with our new data frame in a list. 
+
+```{r}
+#Creating list combining treatment and placebo data frames
+experiment_data<-list(treatment=bp_data,placebo=bp_data_control)
+```
+
+### 3. 
+
+Next, we will access the first element of the list, `treatment`, using three different types of syntax:
+
+* `experiment_data[1]` will return the first element while retaining the list structure
+* `experiment_data[[1]]` will return the first element in its original data frame structure
+* `experiment_data$treatment` will also return the first element in its original data frame structure
+
+```{r}
+#Returning the first element using []
+experiment_data[1]
+
+#Returning the first element using [[]]
+experiment_data[[1]]
+
+#Returning the first element using the $ operator
+experiment_data$treatment
+```
+
+### 4.
+
+Finally, we will access the **pre_bp** column of **placebo** using only a single line of code.
+
+```{r}
+#Accessing pre_bp in placebo element
+experiment_data$placebo["pre_bp"]
+```
+
+
+
