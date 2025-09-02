@@ -99,7 +99,7 @@ We now combine our data from Task 1 in a data frame.
 
 ### 1. 
 
-First, we create the data frame.
+First, we create the data frame. Note that I specify `row.names=NULL` as `patient` now indicates the subject corresponding to a given row. 
 
 ```{r}
 #Creating initial data frame, preventing data frame from inheriting column names from numeric vectors
@@ -184,11 +184,11 @@ experiment_data$treatment
 
 ### 4.
 
-Finally, we will access the `pre_bp` column of `placebo` using only a single line of code. Note that I am preserving the data frame structure so `pre_bp` displays as a column. Alternatively, `experiment_data$placebo$pre_bp` would've produced the column as a vector. 
+Finally, we will access the `pre_bp` column of `placebo` using only a single line of code. 
 
 ```{r}
 #Accessing pre_bp in placebo element
-experiment_data$placebo["pre_bp"]
+experiment_data$placebo$pre_bp
 ```
 
 
