@@ -255,7 +255,7 @@ Subject_20
 <p>We now combine our data from Task 1 in a data frame.</p>
 <section id="section-7" class="level3">
 <h3 class="anchored" data-anchor-id="section-7">1.</h3>
-<p>First, we create the data frame.</p>
+<p>First, we create the data frame. Note that I specify <code>row.names=NULL</code> as <code>patient</code> now indicates the subject corresponding to a given row.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating initial data frame, preventing data frame from inheriting column names from numeric vectors</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>bp_data<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">patient=</span><span class="fu">names</span>(pre_treat_bp),<span class="at">pre_bp=</span>pre_treat_bp,<span class="at">post_bp=</span>post_treat_bp,<span class="at">diff_bp=</span>diff_bp,<span class="at">row.names=</span><span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -563,22 +563,12 @@ Subject_20
 </section>
 <section id="section-14" class="level3">
 <h3 class="anchored" data-anchor-id="section-14">4.</h3>
-<p>Finally, we will access the <code>pre_bp</code> column of <code>placebo</code> using only a single line of code. Note that I am preserving the data frame structure so <code>pre_bp</code> displays as a column. Alternatively, <code>experiment_data$placebo$pre_bp</code> would’ve produced the column as a vector.</p>
+<p>Finally, we will access the <code>pre_bp</code> column of <code>placebo</code> using only a single line of code.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Accessing pre_bp in placebo element</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>experiment_data<span class="sc">$</span>placebo[<span class="st">"pre_bp"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>experiment_data<span class="sc">$</span>placebo<span class="sc">$</span>pre_bp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   pre_bp
-1     138
-2     135
-3     147
-4     117
-5     152
-6     134
-7     114
-8     121
-9     131
-10    130</code></pre>
+<pre><code> [1] 138 135 147 117 152 134 114 121 131 130</code></pre>
 </div>
 </div>
 
