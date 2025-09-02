@@ -11,7 +11,7 @@ We are analyzing blood pressure before and after a medical treatment.
 
 ### 1.
 
-First, we will create the vectors corresponding to pre-treatment and post-treatment blood pressures. 
+First, we will create the vectors corresponding to pre-treatment and post-treatment blood pressures. The code chunk also prints the resultant vectors to ensure we were successful. 
 
 ```{r}
 #Pre-treatment blood pressure
@@ -21,12 +21,18 @@ pre_treat_bp<-c(120, 151, 125, 126, 115, 132, 132, 129, 134, 139, 127, 122,
 #Post-treatment blood pressure
 post_treat_bp<-c(127, 145, 135, 122, 115, 122, 123, 126, 126, 129, 132, 146, 
                  120, 114, 121, 120, 128, 120, 133, 115)
+
+#Printing pre-treatment vector
+pre_treat_bp
+
+#Printing post-treatment vector
+post_treat_bp
 ```
 
 
 ### 2.
 
-Next, we will assign names to each observation in each vector, corresponding to the subject each observation belongs to. 
+Next, we will assign names to each observation in each vector, corresponding to the subject each observation belongs to. Upon printing the vectors in the code chunk below, we now see the appropriate subject numbers corresponding to each value. 
 
 ```{r}
 #Assigning names to pre-treatment vector
@@ -34,6 +40,12 @@ names(pre_treat_bp)<-paste("Subject", 1:20, sep = "_")
 
 #Assigning names to post-treatment vector
 names(post_treat_bp)<-paste("Subject", 1:20, sep = "_")
+
+#Printing updated pre-treatment vector
+pre_treat_bp
+
+#Printing updated post-treatment vector
+post_treat_bp
 ```
 
 ### 3.
@@ -104,6 +116,9 @@ First, we create the data frame. Note that I specify `row.names=NULL` as `patien
 ```{r}
 #Creating initial data frame, preventing data frame from inheriting column names from numeric vectors
 bp_data<-data.frame(patient=names(pre_treat_bp),pre_bp=pre_treat_bp,post_bp=post_treat_bp,diff_bp=diff_bp,row.names=NULL)
+
+#Printing data frame
+bp_data
 ```
 
 ### 2. 
@@ -111,18 +126,23 @@ bp_data<-data.frame(patient=names(pre_treat_bp),pre_bp=pre_treat_bp,post_bp=post
 Next, we explore the patients with negative differences between pre-treatment blood pressure and post-treatment blood pressure. The records for those patients are printed below. 
 
 ```{r}
-
+#Creating subset of original data frame containing only observations with negative differences
 bp_data_neg_diff<-bp_data[bp_data$diff_bp< 0,]
+
+#Printing these observations
 bp_data_neg_diff
 ```
 
 ### 3. 
 
-Next, we create a new column in our data frame indicating whether post-treatment blood pressure was below 120 (TRUE) or not (FALSE).
+Next, we create a new column in our data frame indicating whether post-treatment blood pressure was below 120 (TRUE) or not (FALSE). The code chunk below prints the updated data frame to demonstrate we were successful in creating the new column. 
 
 ```{r}
 #Adding an indicator for whether post-treatment BP is below 120
 bp_data$post_bp_sub120<-(bp_data$post_bp< 120)
+
+#Printing updated data frame
+bp_data
 ```
 
 ### 4. 
@@ -152,6 +172,9 @@ bp_data_control$diff_bp<-bp_data_control$pre_bp-bp_data_control$post_bp
 
 #Adding an indicator for whether post-treatment BP is below 120
 bp_data_control$post_bp_sub120<-(bp_data_control$post_bp< 120)
+
+#Printing the resultant data frame
+bp_data_control
 ```
 
 ### 2. 
@@ -161,6 +184,9 @@ Next, we will combine the data frame from Task 2 with our new data frame in a li
 ```{r}
 #Creating list combining treatment and placebo data frames
 experiment_data<-list(treatment=bp_data,placebo=bp_data_control)
+
+#Printing the resultant list
+experiment_data
 ```
 
 ### 3. 
