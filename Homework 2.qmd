@@ -114,8 +114,10 @@ We now combine our data from Task 1 in a data frame.
 First, we create the data frame. Note that I specify `row.names=NULL` as `patient` now indicates the subject corresponding to a given row. 
 
 ```{r}
-#Creating initial data frame, preventing data frame from inheriting column names from numeric vectors
-bp_data<-data.frame(patient=names(pre_treat_bp),pre_bp=pre_treat_bp,post_bp=post_treat_bp,diff_bp=diff_bp,row.names=NULL)
+#Creating initial data frame, preventing data frame from inheriting column names 
+#from numeric vectors
+bp_data<-data.frame(patient=names(pre_treat_bp),pre_bp=pre_treat_bp,
+                    post_bp=post_treat_bp,diff_bp=diff_bp,row.names=NULL)
 
 #Printing data frame
 bp_data

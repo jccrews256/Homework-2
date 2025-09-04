@@ -291,11 +291,13 @@ Subject_20
 <h3 class="anchored" data-anchor-id="section-7">1.</h3>
 <p>First, we create the data frame. Note that I specify <code>row.names=NULL</code> as <code>patient</code> now indicates the subject corresponding to a given row.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating initial data frame, preventing data frame from inheriting column names from numeric vectors</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>bp_data<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">patient=</span><span class="fu">names</span>(pre_treat_bp),<span class="at">pre_bp=</span>pre_treat_bp,<span class="at">post_bp=</span>post_treat_bp,<span class="at">diff_bp=</span>diff_bp,<span class="at">row.names=</span><span class="cn">NULL</span>)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Printing data frame</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>bp_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating initial data frame, preventing data frame from inheriting column names </span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#from numeric vectors</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>bp_data<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">patient=</span><span class="fu">names</span>(pre_treat_bp),<span class="at">pre_bp=</span>pre_treat_bp,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">post_bp=</span>post_treat_bp,<span class="at">diff_bp=</span>diff_bp,<span class="at">row.names=</span><span class="cn">NULL</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Printing data frame</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>bp_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      patient pre_bp post_bp diff_bp
 1   Subject_1    120     127      -7
